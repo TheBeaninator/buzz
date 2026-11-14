@@ -82,6 +82,12 @@ Options:
 /// clap picks `after_long_help` for `--help` and falls back to `after_help`
 /// for `-h`, which is what gives the two depths: `-h` keeps the group-level
 /// summary, `--help` shows every subcommand under every group.
+/// The `buzz` command tree as clap defines it, for tools that generate interfaces from it (buzz-rap builds
+/// its RAP toolset from this, so the tools cannot drift from the commands).
+pub fn command() -> clap::Command {
+    build_command()
+}
+
 fn build_command() -> clap::Command {
     let cmd = Cli::command();
     let groups = help_tree::render(&cmd, 1);
