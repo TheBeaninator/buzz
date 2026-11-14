@@ -1,0 +1,31 @@
+[package]
+name = "buzz-rap"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "The buzz CLI as a RAP (Reactive Agent Protocol) tool server"
+
+[[bin]]
+name = "buzz-rap"
+path = "src/main.rs"
+
+[dependencies]
+# The command tree the toolset is generated from
+buzz-cli = { path = "../buzz-cli" }
+clap = { version = "4", features = ["derive", "env"] }
+
+# HTTP server for the manifest and invocations, client for callbacks
+axum = { workspace = true }
+reqwest = { workspace = true, features = ["json"] }
+tokio = { workspace = true }
+
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+# Our own public key, so a subscription does not echo the agent's own posts
+nostr = { workspace = true }

@@ -1432,6 +1432,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "buzz-rap"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "axum",
+ "buzz-cli",
+ "clap",
+ "nostr 0.44.7",
+ "reqwest 0.13.4",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
 name = "buzz-relay"
 version = "0.3.0"
 dependencies = [
